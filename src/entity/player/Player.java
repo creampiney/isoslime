@@ -254,11 +254,40 @@ public class Player extends Entity {
 				}
 			});
 			
+			/*
+			movingThread = new Thread(() -> {
+				try {
+					posRow += 1;
+					movingX = 50;
+					movingY = -25;
+					for (int i = 0; i < 4; i++) {
+						movingX -= 10;
+						movingY += 5;
+						Thread.sleep(30);
+					}
+					Thread.sleep(5);
+					Platform.runLater(new Runnable() {
+						@Override
+						public void run() {
+							GameLogic.checkPlayerStat("S");
+						}
+					});
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			});
+			*/
+			
 		}
 		else if (key.equals("D")) {
 			
 			movingThread = new Thread(() -> {
 				try {
+					/*
+					posCol += 1;
+					movingX = -50;
+					movingY = -25;
+					*/
 					for (int i = 0; i < 4; i++) {
 						movingX += 10;
 						movingY += 5;

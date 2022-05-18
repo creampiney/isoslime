@@ -15,7 +15,7 @@ import tile.normal.Ice;
 public class WoodenCrate extends SolidEntity implements Slidable, Destroyable, Droppable {
 	
 	private int movingX, movingY;
-	private int movingZ;
+	//private int movingZ;
 	private boolean isPlayerSlip;
 	private boolean isAllowSlide;
 	
@@ -32,7 +32,8 @@ public class WoodenCrate extends SolidEntity implements Slidable, Destroyable, D
 	}
 	
 	public void draw(GraphicsContext gc) {
-		gc.drawImage(getCurrentSprite(), 590-50*this.getPosRow()+50*this.getPosCol()+movingX, 40+25*this.getPosRow()+25*this.getPosCol()+movingY+movingZ, 100, 110);
+		//gc.drawImage(getCurrentSprite(), 590-50*this.getPosRow()+50*this.getPosCol()+movingX, 40+25*this.getPosRow()+25*this.getPosCol()+movingY+movingZ, 100, 110);
+		gc.drawImage(getCurrentSprite(), 590-50*this.getPosRow()+50*this.getPosCol()+movingX, 40+25*this.getPosRow()+25*this.getPosCol()+movingY, 100, 110);
 	}
 	
 	public boolean slide(String key) {
@@ -114,6 +115,8 @@ public class WoodenCrate extends SolidEntity implements Slidable, Destroyable, D
 			
 			movingThread = new Thread(() -> {
 				try {
+					movingX = 0;
+					movingY = 0;
 					for (int i = 0; i < 4; i++) {
 						movingX += 10;
 						movingY -= 5;
@@ -132,6 +135,8 @@ public class WoodenCrate extends SolidEntity implements Slidable, Destroyable, D
 			
 			movingThread = new Thread(() -> {
 				try {
+					movingX = 0;
+					movingY = 0;
 					for (int i = 0; i < 4; i++) {
 						movingX -= 10;
 						movingY -= 5;
@@ -150,6 +155,12 @@ public class WoodenCrate extends SolidEntity implements Slidable, Destroyable, D
 			
 			movingThread = new Thread(() -> {
 				try {
+					/*
+					setPosRow(newPosRow);
+					setPosCol(newPosCol);
+					movingX = 50;
+					movingY = -25;
+					*/
 					for (int i = 0; i < 4; i++) {
 						movingX -= 10;
 						movingY += 5;
@@ -157,6 +168,7 @@ public class WoodenCrate extends SolidEntity implements Slidable, Destroyable, D
 					}
 					movingX = 0;
 					movingY = 0;
+					
 					moveEntity(newPosRow, newPosCol, key);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
@@ -168,6 +180,12 @@ public class WoodenCrate extends SolidEntity implements Slidable, Destroyable, D
 			
 			movingThread = new Thread(() -> {
 				try {
+					/*
+					setPosRow(newPosRow);
+					setPosCol(newPosCol);
+					movingX = -50;
+					movingY = -25;
+					*/
 					for (int i = 0; i < 4; i++) {
 						movingX += 10;
 						movingY += 5;
@@ -222,12 +240,15 @@ public class WoodenCrate extends SolidEntity implements Slidable, Destroyable, D
 	public void drop() {
 		Thread dropThread = new Thread(() -> {
 			try {
-				
+				/*
 				movingZ = 0;
 				for (int i = 0; i < 4; i++) {
 					movingZ += 12;
-					Thread.sleep(30);
+					Thread.sleep(25);
 				}
+				*/
+				Thread.sleep(150);
+				
 				destroy();
 				Tile originalTile = GameLogic.getMap().getTiles()[getPosRow()][getPosCol()];
 				GameLogic.getMap().setTile(getPosRow(), getPosCol(), ((Fillable) originalTile).getChangedTile());
