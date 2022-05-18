@@ -7,10 +7,10 @@ import entity.base.SolidEntity;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import logic.GameLogic;
-import tile.Ice;
 import tile.base.Fillable;
 import tile.base.Tile;
 import tile.base.Walkable;
+import tile.normal.Ice;
 
 public class WoodenCrate extends SolidEntity implements Slidable, Destroyable, Droppable {
 	

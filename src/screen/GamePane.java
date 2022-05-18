@@ -31,7 +31,7 @@ import logic.Map;
 import logic.ObjectGenerator;
 import logic.ScreenLogic;
 
-public class GamePane extends BasePane implements Animatable, HasListener{
+public class GamePane extends BasePane{
 	
 	private GameScreen canvas;
 	private Label storyLabel;

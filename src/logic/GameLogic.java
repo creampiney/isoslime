@@ -15,10 +15,10 @@ import javafx.application.Platform;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.MediaPlayer;
 import screen.GamePane;
-import tile.Ice;
 import tile.base.Tile;
 import tile.base.Walkable;
-import tile.platform.WoodPlatform;
+import tile.normal.Ice;
+import tile.normal.WoodPlatform;
 
 public class GameLogic {
 	
@@ -63,7 +63,7 @@ public class GameLogic {
 				@Override
 				public void run() {
 					ScreenLogic.changeScene(new GamePane(player, map));
-					//ScreenLogic.checkTutorialShow();
+					ScreenLogic.checkTutorialShow();
 				}
 			});
 			
@@ -252,14 +252,13 @@ public class GameLogic {
 			
 		}
 		else if (gameplayMode == 2) {
-			countdownTimer.incrementTimer(40);
+			countdownTimer.incrementTimer(30);
 			score += 1;
 			if (score != 0) {
 				AudioPlayer.levelCompleteAudio.play();
 			}
 			Random rand = new Random(System.currentTimeMillis());
-			//level = 1 + rand.nextInt(10);  // 1 to 11
-			level = 1;
+			level = 1 + rand.nextInt(49);  // 1 to 50
 			initTimerGame(level);
 		}
 		

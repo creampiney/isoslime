@@ -17,33 +17,34 @@ import entity.solid.SnowyTree;
 import entity.solid.Tree;
 import entity.solid.WinterTree;
 import entity.solid.WoodenCrate;
-import tile.CrateOnDeepStone;
-import tile.CrateOnDirt;
-import tile.CrateOnSand;
-import tile.CrateOnStone;
-import tile.DeepStone;
-import tile.GradientStone;
-import tile.Grass;
-import tile.Ice;
-import tile.Sand;
-import tile.Snow;
-import tile.Stone;
-import tile.VolcanoDirt;
-import tile.WaterOnDeepStone;
-import tile.WaterOnDirt;
-import tile.WaterOnSand;
-import tile.WaterOnStone;
+import javafx.application.Platform;
+import screen.GamePane;
 import tile.base.Tile;
-import tile.platform.BlueEmptyPlatform;
-import tile.platform.BluePlatform;
-import tile.platform.GreenEmptyPlatform;
-import tile.platform.GreenPlatform;
-import tile.platform.OrangeEmptyPlatform;
-import tile.platform.OrangePlatform;
-import tile.platform.PurpleEmptyPlatform;
-import tile.platform.PurplePlatform;
-import tile.platform.RedEmptyPlatform;
-import tile.platform.RedPlatform;
+import tile.coloremptyplatform.BlueEmptyPlatform;
+import tile.coloremptyplatform.GreenEmptyPlatform;
+import tile.coloremptyplatform.OrangeEmptyPlatform;
+import tile.coloremptyplatform.PurpleEmptyPlatform;
+import tile.coloremptyplatform.RedEmptyPlatform;
+import tile.colorplatform.BluePlatform;
+import tile.colorplatform.GreenPlatform;
+import tile.colorplatform.OrangePlatform;
+import tile.colorplatform.PurplePlatform;
+import tile.colorplatform.RedPlatform;
+import tile.normal.CrateOnDeepStone;
+import tile.normal.CrateOnDirt;
+import tile.normal.CrateOnSand;
+import tile.normal.CrateOnStone;
+import tile.normal.DeepStone;
+import tile.normal.GradientStone;
+import tile.normal.Grass;
+import tile.normal.Ice;
+import tile.normal.Sand;
+import tile.normal.Snow;
+import tile.normal.Stone;
+import tile.water.WaterOnDeepStone;
+import tile.water.WaterOnDirt;
+import tile.water.WaterOnSand;
+import tile.water.WaterOnStone;
 
 public class ObjectGenerator {
 	
@@ -140,8 +141,8 @@ public class ObjectGenerator {
 			tile = new Snow();
 			break;
 			
-		case 22:		// Volcano Dirt
-			tile = new VolcanoDirt();
+		case 22:		// Volcano Dirt (Removed)
+			tile = null;
 			break;
 			
 		case 23:		// Water on Stone
@@ -349,5 +350,45 @@ public class ObjectGenerator {
 		default:
 			return "";
 		}
+	}
+	
+	public static Thread buildTutorialThread(int index) {
+		return new Thread(() -> {
+
+			System.out.println("HAHAHA");
+			GameLogic.setGameRunning(false);
+			Platform.runLater(new Runnable() {
+				@Override
+				public void run() {
+					((GamePane) ScreenLogic.getCurrentPane()).showTutorialPane(index);
+				}
+					
+			});
+			synchronized (GameLogic.getTutorialThread()){
+			       try{
+			    	   GameLogic.getTutorialThread().wait();
+			    	   ScreenLogic.isTutorialShown()[index] = true;
+			    	   GameLogic.setGameRunning(true);
+			    	   Platform.runLater(new Runnable() {
+							@Override
+							public void run() {
+								ScreenLogic.getCurrentPane().requestFocus();
+							}
+								
+						});
+						
+			       } catch (InterruptedException e) {
+			    	   ScreenLogic.isTutorialShown()[index] = true;
+			    	   GameLogic.setGameRunning(true);
+			    	   Platform.runLater(new Runnable() {
+							@Override
+							public void run() {
+								ScreenLogic.getCurrentPane().requestFocus();
+							}
+								
+						});
+			       }
+			}
+		});
 	}
 }

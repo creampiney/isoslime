@@ -192,7 +192,7 @@ public class Player extends Entity {
 					posRow -= 1;
 					movingX = 0;
 					movingY = 0;
-					Thread.sleep(2);
+					Thread.sleep(5);
 					Platform.runLater(new Runnable() {
 						@Override
 						public void run() {
@@ -217,7 +217,7 @@ public class Player extends Entity {
 					posCol -= 1;
 					movingX = 0;
 					movingY = 0;
-					Thread.sleep(2);
+					Thread.sleep(5);
 					Platform.runLater(new Runnable() {
 						@Override
 						public void run() {
@@ -242,7 +242,7 @@ public class Player extends Entity {
 					posRow += 1;
 					movingX = 0;
 					movingY = 0;
-					Thread.sleep(2);
+					Thread.sleep(5);
 					Platform.runLater(new Runnable() {
 						@Override
 						public void run() {
@@ -267,7 +267,7 @@ public class Player extends Entity {
 					posCol += 1;
 					movingX = 0;
 					movingY = 0;
-					Thread.sleep(2);
+					Thread.sleep(5);
 					Platform.runLater(new Runnable() {
 						@Override
 						public void run() {

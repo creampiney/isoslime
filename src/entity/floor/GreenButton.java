@@ -9,8 +9,8 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import logic.GameLogic;
 import tile.base.Tile;
-import tile.platform.GreenEmptyPlatform;
-import tile.platform.GreenPlatform;
+import tile.coloremptyplatform.GreenEmptyPlatform;
+import tile.colorplatform.GreenPlatform;
 
 public class GreenButton extends FloorEntity implements Actable {
 

@@ -53,37 +53,56 @@ public class ScreenLogic {
 			return;
 		}
 		
-		if (level == 1) {		// Tutorial 1 2 3
-				if (!isTutorialShown[0]) {
-					tutorialThread = new Thread(() -> {
-
-							System.out.println("HAHAHA");
-							GameLogic.setGameRunning(false);
-							Platform.runLater(new Runnable() {
-								@Override
-								public void run() {
-									((GamePane) root).showTutorialPane(0);
-								}
-									
-							});
-							synchronized (GameLogic.getTutorialThread()){
-							       try{
-							    	   GameLogic.getTutorialThread().wait();
-							       } catch (InterruptedException e) {
-							    	   isTutorialShown[0] = true;
-										GameLogic.setGameRunning(true);
-										System.out.println(GameLogic.isGameRunning());
-							       }
-					
-				
-						
-							}
-					});
-					
-				}
-			}
+		if ((level == 1)&&(!isTutorialShown[0])) {
+			tutorialThread = ObjectGenerator.buildTutorialThread(0);	
+		}
+		else if ((level == 2)&&(!isTutorialShown[1])) {
+			tutorialThread = ObjectGenerator.buildTutorialThread(1);	
+		}
+		else if ((level == 3)&&(!isTutorialShown[2])) {
+			tutorialThread = ObjectGenerator.buildTutorialThread(2);	
+		}
+		else if ((level == 4)&&(!isTutorialShown[3])) {
+			tutorialThread = ObjectGenerator.buildTutorialThread(3);	
+		}
+		else if ((level == 6)&&(!isTutorialShown[4])) {
+			tutorialThread = ObjectGenerator.buildTutorialThread(4);	
+		}
+		else if ((level == 8)&&(!isTutorialShown[5])) {
+			tutorialThread = ObjectGenerator.buildTutorialThread(5);	
+		}
+		else if ((level == 9)&&(!isTutorialShown[6])) {
+			tutorialThread = ObjectGenerator.buildTutorialThread(6);	
+		}
+		else if ((level == 10)&&(!isTutorialShown[7])) {
+			tutorialThread = ObjectGenerator.buildTutorialThread(7);	
+		}
+		else if ((level == 15)&&(!isTutorialShown[8])) {
+			tutorialThread = ObjectGenerator.buildTutorialThread(8);	
+		}
+		else if ((level == 17)&&(!isTutorialShown[9])) {
+			tutorialThread = ObjectGenerator.buildTutorialThread(9);	
+		}
+		else if ((level == 18)&&(!isTutorialShown[10])) {
+			tutorialThread = ObjectGenerator.buildTutorialThread(10);	
+		}
+		else if ((level == 24)&&(!isTutorialShown[11])) {
+			tutorialThread = ObjectGenerator.buildTutorialThread(11);	
+		}
+		else if ((level == 25)&&(!isTutorialShown[12])) {
+			tutorialThread = ObjectGenerator.buildTutorialThread(12);	
+		}
+		else if ((level == 32)&&(!isTutorialShown[13])) {
+			tutorialThread = ObjectGenerator.buildTutorialThread(13);	
+		}
+		else if ((level == 34)&&(!isTutorialShown[14])) {
+			tutorialThread = ObjectGenerator.buildTutorialThread(14);	
+		}
 		
-		tutorialThread.start();
+		if (tutorialThread != null) {
+			tutorialThread.start();
+		}
+		
 		
 	}
 	
@@ -106,6 +125,15 @@ public class ScreenLogic {
 	public static void setInventoryPane(InventoryPane invPane) {
 		inventoryPane = invPane;
 	}
+
+	public static boolean[] isTutorialShown() {
+		return isTutorialShown;
+	}
+
+	public static void setTutorialShown(boolean[] isTutorialShown) {
+		ScreenLogic.isTutorialShown = isTutorialShown;
+	}
+	
 	
 	
 }

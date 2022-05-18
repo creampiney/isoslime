@@ -1,7 +1,7 @@
 package tile.base;
 import javafx.scene.image.Image;
 
-public class Tile {
+public abstract class Tile {
 	
 	private String name;
 	private Image img;

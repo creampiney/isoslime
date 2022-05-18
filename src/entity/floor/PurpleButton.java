@@ -9,8 +9,8 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import logic.GameLogic;
 import tile.base.Tile;
-import tile.platform.PurpleEmptyPlatform;
-import tile.platform.PurplePlatform;
+import tile.coloremptyplatform.PurpleEmptyPlatform;
+import tile.colorplatform.PurplePlatform;
 
 public class PurpleButton extends FloorEntity implements Actable {
 
