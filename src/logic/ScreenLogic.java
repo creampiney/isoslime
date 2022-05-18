@@ -27,8 +27,8 @@ public class ScreenLogic {
 		root = new MainMenuPane();
 		scene = new Scene(root, 1280, 800);
 		stage.setScene(scene);
-		stage.setTitle("Test Final Project");
-		stage.getIcons().add(new Image(ClassLoader.getSystemResource("rickroll.png").toString()));
+		stage.setTitle("IsoSlime");
+		stage.getIcons().add(new Image(ClassLoader.getSystemResource("img/menu/logo.png").toString()));
 		stage.setResizable(false);
 		show();
 		AudioPlayer.runMainMenuAudio();

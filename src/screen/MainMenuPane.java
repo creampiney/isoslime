@@ -57,7 +57,7 @@ public class MainMenuPane extends BasePane {
 		buttonUI.getChildren().add(exitButton);
 		
 		
-		Text text = new Text("Virot Kao Kai");
+		Text text = new Text("IsoSlime");
 		text.setFont(Font.loadFont(ClassLoader.getSystemResource("fonts/FC_daisy_regular.ttf").toString(), 70));
 		
 		GridPane UIPane = new GridPane();

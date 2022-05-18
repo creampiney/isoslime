@@ -138,7 +138,7 @@ public class ModeSelectorPane extends BasePane {
 		slotImgView1.resize(100, 100);
 		slotPane1.add(slotImgView1, 0, 1);
 		
-		Text desText1 = new Text("Tutorial mixed with story.");
+		Text desText1 = new Text("The short story about slime finding his friend with 50 scenes!");
 		desText1.setWrappingWidth(250);
 		desText1.setFont(Font.loadFont(defaultFont, 30));
 		slotPane1.add(desText1, 0, 2);
@@ -165,14 +165,14 @@ public class ModeSelectorPane extends BasePane {
 		headText2.setFont(Font.loadFont(defaultFont, 30));
 		slotPane2.add(headText2, 0, 0);
 		
-		Image slotImg2 = new Image(ClassLoader.getSystemResource("img/player/pinkslime.png").toString());
-		PixelReader reader2 = slotImg2.getPixelReader();
-		WritableImage slotCropImg2 = new WritableImage(reader2, 0, 80, 200, 120);
-		ImageView slotImgView2 = new ImageView(slotCropImg2);
+		Image slotImg2 = new Image(ClassLoader.getSystemResource("img/menu/puzzlemode.png").toString());
+		//PixelReader reader2 = slotImg2.getPixelReader();
+		//WritableImage slotCropImg2 = new WritableImage(reader2, 0, 80, 200, 120);
+		ImageView slotImgView2 = new ImageView(slotImg2);
 		slotImgView2.resize(100, 100);
 		slotPane2.add(slotImgView2, 0, 1);
 		
-		Text desText2 = new Text("Beat as many levels as you can in time limit.");
+		Text desText2 = new Text("Beat as many levels as you can within 2 minutes. 30 seconds will be added every levels completed!");
 		desText2.setWrappingWidth(250);
 		desText2.setFont(Font.loadFont(defaultFont, 30));
 		slotPane2.add(desText2, 0, 2);
