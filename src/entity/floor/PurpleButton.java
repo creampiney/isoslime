@@ -1,9 +1,7 @@
 package entity.floor;
 
-import entity.base.Actable;
 import entity.base.Destroyable;
 import entity.base.Entity;
-import entity.base.FloorEntity;
 import entity.base.SolidEntity;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -12,14 +10,10 @@ import tile.base.Tile;
 import tile.coloremptyplatform.PurpleEmptyPlatform;
 import tile.colorplatform.PurplePlatform;
 
-public class PurpleButton extends FloorEntity implements Actable {
+public class PurpleButton extends FloorButton {
 
-	private boolean isActive;
-	
 	public PurpleButton(int posRow, int posCol) {
-		super(posRow, posCol, 100, 120);
-		isActive = false;
-		setImg();
+		super(posRow, posCol);
 	}
 
 	public void changeSprite() {

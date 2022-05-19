@@ -71,7 +71,7 @@ public class GamePane extends BasePane{
 	
 			return new AnimationTimer() {
 				public void handle(long now) {
-					System.out.println("Free Memory (in bytes): " + Runtime.getRuntime().freeMemory());
+					//System.out.println("Free Memory (in bytes): " + Runtime.getRuntime().freeMemory());
 					canvas.draw();
 					InputUtility.updateInputState();
 					if (GameLogic.getSlotSelecting() == 3) {
@@ -121,6 +121,7 @@ public class GamePane extends BasePane{
 			InputUtility.mouseOnScreen = false;
 		});
 
+		/*
 		this.setOnMouseMoved((MouseEvent event) -> {
 			if (InputUtility.mouseOnScreen) {
 				InputUtility.mouseX = event.getX();
@@ -134,6 +135,7 @@ public class GamePane extends BasePane{
 				InputUtility.mouseY = event.getY();
 			}
 		});
+		*/
 		
 		this.addEventFilter(MouseEvent.MOUSE_MOVED, e -> {
 

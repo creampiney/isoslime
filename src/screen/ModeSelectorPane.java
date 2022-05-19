@@ -192,7 +192,6 @@ public class ModeSelectorPane extends BasePane {
 		});
 		
 		slotPane1.setOnMouseClicked(e -> {
-			System.out.println("Clicked Normal Mode");
 			AudioPlayer.clickAudio.play();
 			GameLogic.setGameplayMode(1);
 			GameLogic.initNormalGame(1);
@@ -212,7 +211,6 @@ public class ModeSelectorPane extends BasePane {
 		});
 		
 		slotPane2.setOnMouseClicked(e -> {
-			System.out.println("Clicked Endless Mode");
 			AudioPlayer.clickAudio.play();
 			GameLogic.setGameplayMode(2);
 			GameLogic.initTimerMode();

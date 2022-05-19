@@ -46,5 +46,9 @@ public class TileHover extends FloorEntity{
 		return isVisible;
 	}
 	
+	public void setVisible(boolean isVisible) {
+		this.isVisible = isVisible;
+	}
+	
 	
 }

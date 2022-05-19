@@ -16,7 +16,6 @@ public abstract class Item extends Entity implements Actable, Destroyable{
 		
 	}
 
-	public abstract void changeSprite();
 
 	@Override
 	public void update() {
@@ -32,7 +31,8 @@ public abstract class Item extends Entity implements Actable, Destroyable{
 		gc.drawImage(getCurrentSprite(), 600-50*this.getPosRow()+50*this.getPosCol(), 70+25*this.getPosRow()+25*this.getPosCol(), 80, 80);
 	}
 
-	@Override
+	public abstract void changeSprite();
+	
 	public abstract void setImg();
 
 }

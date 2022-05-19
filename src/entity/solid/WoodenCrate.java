@@ -15,7 +15,6 @@ import tile.normal.Ice;
 public class WoodenCrate extends SolidEntity implements Slidable, Destroyable, Droppable {
 	
 	private int movingX, movingY;
-	//private int movingZ;
 	private boolean isPlayerSlip;
 	private boolean isAllowSlide;
 	
@@ -80,7 +79,6 @@ public class WoodenCrate extends SolidEntity implements Slidable, Destroyable, D
 		else if (key.equals("D")) {
 			newPosCol += 1;
 		}
-		System.out.println("Require Condition" + requireCondition);
 		if (((!GameLogic.isTilePlaced(newPosRow, newPosCol))||(newPosRow < 0)||(newPosRow > 9)||(newPosCol < 0)||(newPosCol > 9)) && !requireCondition) {
 			movingAnimation(newPosRow, newPosCol, key);
 			return true;
@@ -240,13 +238,6 @@ public class WoodenCrate extends SolidEntity implements Slidable, Destroyable, D
 	public void drop() {
 		Thread dropThread = new Thread(() -> {
 			try {
-				/*
-				movingZ = 0;
-				for (int i = 0; i < 4; i++) {
-					movingZ += 12;
-					Thread.sleep(25);
-				}
-				*/
 				Thread.sleep(150);
 				
 				destroy();

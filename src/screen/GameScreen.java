@@ -53,19 +53,6 @@ public class GameScreen extends BaseScreen{
 			InputUtility.mouseOnScreen = false;
 		});
 
-		this.setOnMouseMoved((MouseEvent event) -> {
-			if (InputUtility.mouseOnScreen) {
-				InputUtility.mouseX = event.getX();
-				InputUtility.mouseY = event.getY();
-			}
-		});
-
-		this.setOnMouseDragged((MouseEvent event) -> {
-			if (InputUtility.mouseOnScreen) {
-				InputUtility.mouseX = event.getX();
-				InputUtility.mouseY = event.getY();
-			}
-		});
 	}
 	
 	public void draw() {

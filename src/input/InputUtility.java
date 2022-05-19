@@ -11,22 +11,18 @@ public class InputUtility {
 	private static boolean isLeftDown = false;
 	private static boolean isLeftClickedLastTick = false;
 	private static ArrayList<KeyCode> keyPressed = new ArrayList<>(); 
-	//private static ArrayList<KeyCode> keyTriggered = new ArrayList<>();
 	private static KeyCode keyTriggered;
-	//private static ArrayList<KeyCode> keyTriggerFlag = new ArrayList<>();
 	
 	public static boolean getKeyPressed(KeyCode keycode) {
 		return keyPressed.contains(keycode);
 	}
 	
 	public static boolean getKeyTriggered(KeyCode keycode) {
-		//return keyTriggered.contains(keycode);
 		return keycode.equals(keyTriggered);
 	}
 	
 	public static void clearKeyTriggered() {
 		keyTriggered = null;
-		//keyTriggered.clear();
 	}
 	
 	public static void setKeyPressed(KeyCode keycode,boolean pressed) {
@@ -37,10 +33,8 @@ public class InputUtility {
 			}
 		}else{
 			keyPressed.remove(keycode);
-			//keyTriggered.remove(keycode);
 			keyTriggered = null;
 		}
-		//System.out.println("Pressed " + keyPressed);
 		System.out.println("Triggered " + keyTriggered);
 	}
 	

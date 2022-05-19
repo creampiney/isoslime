@@ -43,7 +43,7 @@ public class GameLogic {
 	private static boolean isMagicMode;
 	private static boolean isMenuOpen;
 	
-	private static int gameplayMode; // 1 = Story, 2 = Arcade
+	private static int gameplayMode; // 1 = Story, 2 = Puzzle
 	
 	private static ArrayList<Actable> removingActable;
 	
@@ -131,7 +131,6 @@ public class GameLogic {
 	public static void setAnimationTimer(AnimationTimer newAnimation) {
 		animation = newAnimation;
 		animation.start();
-		System.out.println("Animation Start");
 	}
 	
 	
@@ -314,12 +313,6 @@ public class GameLogic {
 		else {
 			GameLogic.setPlayerMoving(false);
 		}
-		/*
-		if (checkNormal()) {
-			// Normal Tile
-			GameLogic.setPlayerMoving(false);
-		}
-		*/
 		
 		
 	}
@@ -407,11 +400,6 @@ public class GameLogic {
 		return (!((map.getTiles()[posRow][posCol]) instanceof Walkable));
 	}
 	
-	public static boolean checkNormal() {
-		int posRow = player.getPosRow();
-		int posCol = player.getPosCol();
-		return ((map.getTiles()[posRow][posCol]) instanceof Tile);
-	}
 	
 	public static void useMagicWand(int posRow, int posCol) {
 		magicWandAmount -= 1;
