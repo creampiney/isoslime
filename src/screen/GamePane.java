@@ -321,6 +321,8 @@ public class GamePane extends BasePane{
 			AudioPlayer.clickAudio.play();
 			hideMenu();
 			GameLogic.setGameRunning(true);
+			GameLogic.setMenuOpen(false);
+			
 		});
 		
 		restartButton.setOnMouseClicked(e -> {
@@ -358,6 +360,8 @@ public class GamePane extends BasePane{
 		if (GameLogic.getGameplayMode() == 2) {
 			GameLogic.startCountDownTimer();
 		}
+		ScreenLogic.getCurrentPane().requestFocus();
+
 		
 	}
 	
@@ -482,6 +486,7 @@ public class GamePane extends BasePane{
 			synchronized (GameLogic.getTutorialThread()){
 			       
 			    	   GameLogic.getTutorialThread().notify();
+			    	   
 			        
 	
 
