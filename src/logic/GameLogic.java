@@ -242,7 +242,7 @@ public class GameLogic {
 		if (gameplayMode == 1) {
 			level += 1;
 			AudioPlayer.levelCompleteAudio.play();
-			if (level == 51) {
+			if (level >= 51) {
 				storyModeClear();
 			}
 			else {
